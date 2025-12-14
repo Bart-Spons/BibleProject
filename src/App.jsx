@@ -89,7 +89,9 @@ export default function App() {
         <div
             style={{
                 width: "100vw",
-                height: "100svh", // beter dan 100vh op mobiel
+                minWidth: "100vw",
+                height: "100svh",
+                minHeight: "100svh",
                 display: "grid",
                 placeItems: "center",
                 position: "relative",
