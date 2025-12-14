@@ -43,7 +43,6 @@ export default function App() {
     const [verse] = useState(() => pickRandomVerse()); // nieuwe verse bij elke reload
 
     const themeVars = useMemo(() => {
-        // Je kunt deze kleuren later makkelijk tweaken
         switch (theme) {
             case "morning":
                 return {
@@ -88,18 +87,17 @@ export default function App() {
     return (
         <div
             style={{
-                width: "100vw",
-                minWidth: "100vw",
+                width: "100%",
                 height: "100svh",
                 minHeight: "100svh",
                 display: "grid",
                 placeItems: "center",
                 position: "relative",
                 overflow: "hidden",
-
+                touchAction: "none", // extra: voorkomt “scroll gestures”
                 background: `radial-gradient(1200px 600px at 20% 25%, ${themeVars.bg2} 0%, transparent 55%),
-                     radial-gradient(900px 500px at 80% 20%, ${themeVars.accent} 0%, transparent 60%),
-                     linear-gradient(145deg, ${themeVars.bg1} 0%, ${themeVars.bg2} 35%, ${themeVars.bg1} 100%)`,
+          radial-gradient(900px 500px at 80% 20%, ${themeVars.accent} 0%, transparent 60%),
+          linear-gradient(145deg, ${themeVars.bg1} 0%, ${themeVars.bg2} 35%, ${themeVars.bg1} 100%)`,
             }}
         >
             {/* Vignette + film grain */}
@@ -112,6 +110,7 @@ export default function App() {
                     pointerEvents: "none",
                 }}
             />
+
             <div
                 aria-hidden
                 style={{
@@ -128,7 +127,7 @@ export default function App() {
             {/* Content card */}
             <main
                 style={{
-                    // width: "min(920px, 92vw)",
+                    width: "min(920px, 92vw)",
                     padding: "clamp(22px, 4vw, 42px)",
                     borderRadius: "28px",
                     position: "relative",
